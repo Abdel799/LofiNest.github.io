@@ -1,4 +1,4 @@
-import styles from './Modalpolo.module.css'
+import styles from './ModalPolo.module.css'
 import { useState } from "react"
 import { useEffect } from "react"
 
