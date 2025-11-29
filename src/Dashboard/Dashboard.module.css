@@ -1,0 +1,240 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  padding-top: 20px;
+  background-color: transparent;
+}
+
+.card {
+  border: 2px solid #f24822;
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  width: 325px;
+  height: 106px;
+  /*margin: 0 auto;*/
+  border-radius: 5px;
+  /*display: inline-block;*/
+  background-color: #f24822;
+  border-radius: 17px;
+  /*margin-left: 10px;*/
+}
+
+.logo {
+  font-size: 60px;
+  font-family: 'Inter';
+  font-weight: 900;
+  background-color: #f24822;
+  text-decoration: none;
+}
+
+.logoLink {
+  text-decoration: none; /* removes underline */
+}
+
+.logo:hover {
+  cursor:pointer;
+}
+
+.lofi {
+  color: #dcccff;
+  /*background-color: #f24822;*/
+  background-color: transparent;
+}
+
+.nest {
+  color: #ffc2ec;
+  /*background-color: #f24822;*/
+  background-color: transparent;
+}
+
+.line {
+  border: 2px solid #f24822;
+  height: 80px;
+  background-color: transparent;
+}
+
+.card2 {
+  border: 2px solid #f24822;
+  background-color: #f24822;
+  width: 600px;
+  height: 78px;
+  border-radius: 17px;
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  gap: 3rem;
+  padding-left: 20px;
+  padding-right: 20px;
+    
+}
+
+/*.card2 h2 {
+  background-color: #f24822;
+  font-size: 27px;
+  font-family: 'Inter';
+  font-weight: 800;
+  color: white;
+}
+
+.card2 h2:hover {
+  cursor:pointer;
+  color: #800080;
+  transition: color 0.2s ease-in-out;
+}*/
+
+.link {
+  background-color: #f24822;
+  text-decoration: none;
+  font-size: 27px;
+  font-family: 'Inter';
+  font-weight: 800;
+  color: white;
+}
+
+.link:hover {
+  cursor:pointer;
+  background-color: #f24822;
+  text-decoration: none;
+  font-size: 27px;
+  font-family: 'Inter';
+  font-weight: 800;
+  text-decoration: none;
+  color: #800080;
+  transition: color 0.2s ease-in-out;
+}
+
+.activeLink {
+  background-color: #f24822;
+  text-decoration: none;
+  font-size: 27px;
+  font-family: 'Inter';
+  font-weight: 800;
+  text-decoration: none;
+  color: #800080;
+  transition: color 0.2s ease-in-out;
+}
+
+  /* Large screens - keep original layout */
+@media screen and (min-width: 1400px) {
+  .dashboard {
+    gap: 10rem;
+  }
+}
+
+/* Medium-large screens */
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
+  .dashboard {
+    gap: 6rem;
+  }
+  
+  .card2 {
+    width: 700px;
+  }
+}
+
+/* Medium screens */
+@media screen and (max-width: 1199px) and (min-width: 1000px) {
+  .dashboard {
+    gap: 4rem;
+  }
+  
+  .card2 {
+    width: 550px;
+  }
+}
+
+/* Small-medium screens */
+@media screen and (max-width: 999px) and (min-width: 800px) {
+  .dashboard {
+    gap: 2rem;
+  }
+  
+  .card {
+    width: 280px;
+    height: 90px;
+    margin-left: 5px;
+  }
+  
+  .logo {
+    font-size: 50px;
+  }
+  
+  .card2 {
+    width: 400px;
+    height: 82px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 799px) and (min-width: 650px) {
+  .dashboard {
+    gap: 1.5rem;
+    padding-top: 15px;
+  }
+  
+  .card {
+    width: 240px;
+    height: 80px;
+    margin-left: 5px;
+  }
+  
+  .logo {
+    font-size: 42px;
+  }
+  
+  .card2 {
+    width: 320px;
+    height: 72px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 649px) and (min-width: 500px) {
+  .dashboard {
+    gap: 1rem;
+    padding-top: 10px;
+  }
+  
+  .card {
+    width: 200px;
+    height: 70px;
+    margin-left: 3px;
+  }
+  
+  .logo {
+    font-size: 36px;
+  }
+  
+  .card2 {
+    width: 250px;
+    height: 62px;
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 499px) {
+  .dashboard {
+    gap: 0.5rem;
+    padding-top: 10px;
+  }
+  
+  .card {
+    width: 160px;
+    height: 60px;
+    margin-left: 2px;
+  }
+  
+  .logo {
+    font-size: 28px;
+  }
+  
+  .card2 {
+    width: 180px;
+    height: 52px;
+  }
+}
+
+ 

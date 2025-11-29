@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    /*margin-top: 100px;*/
+    align-items: center;
+    height: 300px;
+    min-height: calc(100vh - 250px);
+}
+  
+.poloFrame {
+    border: 2px solid black;
+    height: 300px;
+    width: 700px;
+    background-color: #dcccff;
+    border-radius: 20px;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.setbuttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 700px;              /* Match the .poloFrame width */
+    margin: 50px auto 0 auto;  /* Center horizontally under frame */
+    gap: 1rem;                 /* optional — keeps even spacing */
+}
+  
+.timebuttons {
+    font-size: 30px;           /* maybe a bit smaller to balance the layout */
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+  

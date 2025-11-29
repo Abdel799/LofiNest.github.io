@@ -1,0 +1,72 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+  
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+    z-index: 999;
+  }
+  
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid black;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    min-width: 300px;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.form label {
+    display: block;      /* forces label onto its own line */
+    margin-bottom: 4px;  /* small space between label and input */
+    font-weight: bold;   /* optional: make it stand out */
+  }
+  
+.form input {
+    display: block;      /* keeps input below label */
+    width: 100%;         /* optional: stretch input */
+    padding: 6px;
+    margin-bottom: 1rem; /* space below input */
+}
+
+.edit {
+  background-color: rgb(5, 225, 5);
+  color: white;
+  font-size: 20px;
+  border: none;
+  width: 70px;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.delete {
+  background-color: red;
+  font-size: 20px;
+  color: white;
+  border: none;
+  width: 70px;
+  height: 40px;
+  border-radius: 2px;
+}

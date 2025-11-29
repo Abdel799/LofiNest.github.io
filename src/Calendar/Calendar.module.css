@@ -1,0 +1,170 @@
+
+.frame {
+    height: 600px;
+    width: 1000px;
+    border: 2.5px solid black;
+    background-color: #dcccff;
+    margin: 0 auto;
+    margin-top: 75px;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    font-family: 'Inter';
+    font-weight: 900;
+    background-color: transparent;
+    align-self: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 700px;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.right {
+    height: 50px;
+    width: 50px;
+    background-color: #ffc7c2;
+}
+
+.right :global(.fa-arrow-right) {
+    font-size: 20px;
+}
+
+.left {
+    height: 50px;
+    width: 50px;
+    background-color: #ffc7c2;
+}
+
+.left :global(.fa-arrow-left) {
+    font-size: 20px;
+}
+
+.days {
+    
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr)); /* Same as calendar */
+    width: 100%;
+    max-width: 900px; /* Same as calendar */
+    margin: 0 auto; /* Same as calendar */
+    background-color: transparent;
+    margin-top: 10px;
+    padding: 0 3px; /* Match calendar padding */
+    margin-right: 8px;
+    
+}
+
+.days h2 {
+    font-family: 'Inter';
+    font-size: 30px;
+    background-color: transparent;
+    color: black;
+}
+
+.calendar {
+    /* layout */
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr)); /* 7 equal columns */
+    /*grid-template-rows: repeat(5, 1fr);   */            /* 5 equal rows */
+    grid-auto-rows: 1fr;
+    gap: 10px; /* inner border thickness */
+  
+    
+    width: 100%;
+    max-width: 900px; /* tweak as you like */
+    height: 300px;
+    margin: 0 auto;
+    padding: 3px;   /* outer border thickness */
+    background: transparent;       /* border colour */
+}
+
+.calendar__cell {
+    padding: 3px;
+    outline: 1px solid black;
+    background-color: #ffc7c2;
+}
+
+.calendar__cell:hover {
+    outline: 4px solid #5F9EA0;
+    transition: outline 0.2s ease;
+}
+
+
+.currentDay {
+    background-color: #ff4444;
+    padding: 3px;
+    color: white;
+    outline: 1px solid black;
+}
+
+.currentDay:hover {
+    outline: 4px solid #5F9EA0;
+    transition: outline 0.2s ease;
+}
+
+/* Empty cell styling */
+.emptyCell {
+    color: #ff4444;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffc7c2;
+    
+}
+
+.eventsContainer {
+    margin-top: 4px;
+    max-height: calc(100% - 10px);
+    overflow-y: auto;
+    width: 100%;
+    padding: 1px; /* Very small padding */
+}
+
+.calendar__cell,
+.currentDay {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px;
+    height: 42px; /* Fixed height instead of min-height */
+    max-height: 80px; /* Prevent any growth */
+    position: relative;
+}
+
+.eventsContainer::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+.eventsContainer::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the track */
+    border-radius: 3px;
+}
+
+.eventsContainer::-webkit-scrollbar-thumb {
+    background: black; /* Color of the scrollbar thumb */
+    border-radius: 3px;
+}
+
+.eventsContainer::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovering over the scrollbar */
+}
+
+.event {
+    background-color: rgb(7, 196, 190);
+    border: 1px solid rgb(7, 196, 190);
+    border-radius: 3px;
+    margin-bottom: 1px;
+    padding: 1px 3px;
+    font-size: 15px;
+    line-height: 1.1;
+    width: auto; /* Let it size naturally */
+    max-width: 95%; /* Don't let it get too wide */
+}
+
+.event:hover {
+    cursor: pointer;
+}
