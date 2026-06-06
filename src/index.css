@@ -1,21 +1,29 @@
+header {
+    width: 100%;
+  }
+
 body {
     background-color: #ffc7c2;
 }
 
 .gif-background {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     background-size: cover;
     background-position: center;
+    z-index: -1;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 120px); /* adjust if needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: -1;
-}
+    
+  }
+
+
 
 .intro {
     text-align: center;

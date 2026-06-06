@@ -28,10 +28,10 @@ function App() {
   }, []);
 
   const songs = [
-    {name: "Hip Hop Radio 📚", youtubeId: 'jfKfPfyJRdk', img: '/Lofi-1.jpg'},
-    {name: "Jazz Radio 🎵", youtubeId: 'HuFYqnbVbzY', img: '/Lofi-1.jpg'},
-    {name: "Chill Beats Radio 🌙", youtubeId: '28KRPhVzCus', img: '/Lofi-1.jpg'},
-    {name: "Study Beats Radio 📖", youtubeId: '1oDrJba2PSs', img: '/Lofi-1.jpg'},
+    {name: "Hip Hop Radio 📚", youtubeId: 'X4VbdwhkE10', img: '/Lofi-1.jpg'},
+    {name: "Jazz Radio 🎵", youtubeId: 'E2vONfzoyRI', img: '/Lofi-1.jpg'},
+    {name: "Chill Beats Radio 🌙", youtubeId: '92PvEVG0sKI', img: '/Lofi-1.jpg'},
+    {name: "Study Beats Radio 📖", youtubeId: 'qGohtGC5Rtk', img: '/Lofi-1.jpg'},
     {name: "Synthwave Radio 🌆", youtubeId: '4xDzrJKXOOY', img: '/Lofi-1.jpg'},
     {name: "Calm Radio 🌊", youtubeId: 'E_XmwjgRLz8', img: '/Lofi-1.jpg'}
   ];
@@ -213,18 +213,26 @@ function App() {
     <>
       <TimerProvider>
         <Router>
-          <Dashboard/>
-        
+
+          <header>
+            <Dashboard/>
+          </header>
+
           {/* Hidden YouTube player */}
           <div id="youtube-player" style={{ display: 'none' }} />
 
           <Routes>
             <Route path="/" element={
               <>
-                <div className="gif-background" style={{ backgroundImage: `url(${randomGif})` }}>
+                <div
+                  className="gif-background"
+                  style={{ backgroundImage: `url(${randomGif})` }}
+                />
+
+                <main className="main-content">
                   <h1 className="intro">Welcome!</h1>
                   <Music {...musicProps} />
-                </div>
+                </main>
               </>
             } />
 
