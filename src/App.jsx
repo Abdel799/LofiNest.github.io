@@ -20,7 +20,7 @@ function App() {
   const playerIntervalRef = useRef(null)
   const shouldPlayRef = useRef(false) // Track intended play state
 
-  const gifs = ["2gif.gif", "bear.gif", "chill.gif", "gif.gif", "gif4.gif", "gif5.gif", "gif8.gif", "gif9.gif", "night.gif"]
+  const gifs = ["2gif.gif", "bear.gif", "gif.gif", "gif4.gif", "gif5.gif", "gif8.gif", "gif9.gif", "night.gif"]
 
   const randomGif = useMemo(() => {
     const index = Math.floor(Math.random() * gifs.length);
