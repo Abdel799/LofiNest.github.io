@@ -42,8 +42,22 @@ This platform combines:
 
 # Screenshots
 
+# Music Player
+![Lofi Nest music player](Screenshots/Music-Player.png)
+
+# AI Assistant
+![Lofi Nest AI Assistant](Screenshots/AI-Assistant.png)
+
+# Calendar
+![Lofi Nest Calendar](Screenshots/Calendar.png)
+
+# Note-taking
+![Lofi Nest Note-taking](Screenshots/Notes.png)
+
+# Pomodoro Timer
+![Lofi Nest Note-taking](Screenshots/Timer.png)
 
 
 # Author
 **Abdelrahman Abdelaal**
-Computer Science Co-op Student at Toronto Metropolitan University
+Computer Science Co-op Student - Toronto Metropolitan University
