@@ -1,5 +1,7 @@
 # Welcome to Lofi Nest
 
+Demo Link: https://lofinest.netlify.app/
+
 Lofi Nest is a study platform designed to help students be productive with every-day tasks.
 
 # Functionality
