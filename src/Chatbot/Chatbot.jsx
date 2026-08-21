@@ -70,13 +70,16 @@ function Chatbot() {
                     'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`
                 },
                 body: JSON.stringify({
-                    model: "llama-3.1-8b-instant",
+                    model: "openai/gpt-oss-20b",
                     messages: conversationHistory,
                     max_tokens: 500
                 })
             });
 
             const data = await response.json();
+
+            console.log("STATUS:", response.status);
+            console.log("GROQ RESPONSE:", data);
             
             if (data.choices && data.choices[0]) {
                 botResponse = data.choices[0].message.content;
