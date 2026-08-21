@@ -5,7 +5,7 @@
     margin-top: 100px;
     max-width: 1450px; /* Adjust this to control where wrapping happens */
     margin: 100px auto 0 auto;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .addNote {
@@ -165,4 +165,127 @@
     height: 40px;
     width: 2px;
     background-color: black;
+}
+
+.documentView {
+    padding-bottom: 80px;
+}
+
+@media screen and (max-width: 900px) {
+    .notesParent {
+        width: 92%;
+        gap: 3rem;
+        margin-top: 70px;
+        justify-content: center;
+    }
+
+    .addNote,
+    .document {
+        width: 160px;
+        height: 160px;
+    }
+
+    .documentTitle {
+        font-size: 18px;
+    }
+
+    .documentView {
+        padding-bottom: 80px;
+    }
+
+    .toolbar {
+        width: 92%;
+        max-width: none;
+
+        flex-wrap: wrap;
+        gap: 10px;
+
+        box-sizing: border-box;
+    }
+
+    .documentTextarea {
+        width: 88%;
+        height: 450px;
+
+        padding: 60px 50px;
+
+        box-sizing: border-box;
+    }
+
+    .documentView h1 {
+        font-size: 34px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .notesParent {
+        width: 94%;
+        gap: 2rem;
+        margin-top: 60px;
+    }
+
+    .addNote,
+    .document {
+        width: 140px;
+        height: 140px;
+    }
+
+    .documentTitle {
+        font-size: 16px;
+    }
+
+    .documentFooter {
+        padding: 7px;
+    }
+
+    .documentView {
+        padding-bottom: 100px;
+    }
+
+    .documentView h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .backButton {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    .toolbar {
+        width: 94%;
+        padding: 8px;
+
+        gap: 8px;
+
+        flex-wrap: wrap;
+    }
+
+    .toolButton,
+    .toolButtonActive {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .colorPicker {
+        width: 28px;
+        height: 28px;
+    }
+
+    .fontSelect,
+    .sizeSelect {
+        max-width: 140px;
+    }
+
+    .documentTextarea {
+        width: 94%;
+        height: 420px;
+
+        padding: 35px 25px;
+
+        font-size: 11pt;
+
+        box-sizing: border-box;
+    }
 }

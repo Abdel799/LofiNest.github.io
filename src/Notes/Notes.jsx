@@ -11,6 +11,7 @@ function Notes () {
     const [isOpen2, setIsOpen2] = useState(false)
     const [openDoc, setOpenDoc] = useState(null)
     const editorRef = useRef(null);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const [activeFormats, setActiveFormats] = useState({
         bold: false,
@@ -22,23 +23,25 @@ function Notes () {
         insertUnorderedList: false
     });
 
-     // Load from localStorage when component mounts
-    useEffect(() => {
-        const savedDocs = localStorage.getItem("documents");
-        if (savedDocs) {
-            setDocs(JSON.parse(savedDocs));
-        }
-    }, []);
+     useEffect(() => {
+    const savedDocs = localStorage.getItem("documents");
 
-    // Save to localStorage whenever docs change
-    useEffect(() => {
-        if (docs.length > 0) {
-            localStorage.setItem("documents", JSON.stringify(docs));
-        }
-    }, [docs]);
+    if (savedDocs) {
+        setDocs(JSON.parse(savedDocs));
+    }
+
+    setIsLoaded(true);
+}, []);
+
+useEffect(() => {
+    if (isLoaded) {
+        localStorage.setItem("documents", JSON.stringify(docs));
+    }
+}, [docs, isLoaded]);
 
     const addDoc = (newDoc) => {
         setDocs([...docs, newDoc])
+        setOpenDoc(newDoc);
     }
 
     const editDoc = () => {

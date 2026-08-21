@@ -52,21 +52,21 @@
 }
 
 .edit {
-  background-color: rgb(5, 225, 5);
-  color: white;
-  font-size: 20px;
+  background-color: rgb(159, 232, 159);
+  color: black;
+  font-size: 18px;
   border: none;
   width: 70px;
   height: 40px;
-  border-radius: 2px;
+  border-radius: 20px;
 }
 
 .delete {
-  background-color: red;
-  font-size: 20px;
-  color: white;
+  background-color: rgb(238, 141, 141);
+  font-size: 18px;
+  color: black;
   border: none;
   width: 70px;
   height: 40px;
-  border-radius: 2px;
+  border-radius: 20px;
 }

@@ -51,3 +51,23 @@
     margin-bottom: 1rem; /* space below input */
 }
 
+.edit {
+  background-color: rgb(159, 232, 159);
+  color: black;
+  font-size: 18px;
+  border: none;
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.delete {
+  background-color: rgb(238, 141, 141);
+  font-size: 18px;
+  color: black;
+  border: none;
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+}
+

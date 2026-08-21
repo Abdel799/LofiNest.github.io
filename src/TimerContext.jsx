@@ -20,44 +20,53 @@ export const TimerProvider = ({ children }) => {
     localStorage.setItem("savedTimer", JSON.stringify(time));
   }, [time]);
 
-  useEffect(() => {
-    if ("Notification" in window && Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-  }, []);
-
   const tick = () => {
-    setTime(prev => {
-      let { hour, minute, second } = prev;
+  setTime(prev => {
+    let { hour, minute, second } = prev;
 
-      if (hour === 0 && minute === 0 && second === 0) {
-        clearInterval(intervalRef.current);
-        setRunning(false);
+    // Timer is about to reach zero
+    if (hour === 0 && minute === 0 && second === 1) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setRunning(false);
 
-        if (Notification.permission === "granted") {
-          new Notification("⏰ Time's up!", {
-            body: "Your StudyJam timer has finished.",
-            icon: "/icon.png" // optional icon
-          });
-        }
-
-        return { hour: 0, minute: 0, second: 0 };
+      if ("Notification" in window && Notification.permission === "granted") {
+        new Notification("⏰ Time's up!", {
+          body: "Your StudyJam timer has finished."
+        });
       }
 
-      if (second > 0) second--;
-      else if (minute > 0) { minute--; second = 59; }
-      else if (hour > 0) { hour--; minute = 59; second = 59; }
-
-      return { hour, minute, second };
-    });
-  };
-
-  const start = () => {
-    if (!running) {
-      intervalRef.current = setInterval(tick, 1000);
-      setRunning(true);
+      return { hour: 0, minute: 0, second: 0 };
     }
-  };
+
+    if (second > 0) {
+      second--;
+    } else if (minute > 0) {
+      minute--;
+      second = 59;
+    } else if (hour > 0) {
+      hour--;
+      minute = 59;
+      second = 59;
+    }
+
+    return { hour, minute, second };
+  });
+};
+
+  const start = async () => {
+  if (
+    "Notification" in window &&
+    Notification.permission === "default"
+  ) {
+    await Notification.requestPermission();
+  }
+
+  if (!running) {
+    intervalRef.current = setInterval(tick, 1000);
+    setRunning(true);
+  }
+};
 
   const pause = () => {
     clearInterval(intervalRef.current);

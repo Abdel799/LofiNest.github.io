@@ -147,14 +147,18 @@ function Calendar () {
     return (
         
         <>
-        
+
+            <p className={styles.instructions}>
+                Double-click a calendar cell to add an event. Click an event to edit it.
+            </p>
+                        
             <div className={styles.frame}>
 
                 <h1 className={styles.date}>{today}</h1>
 
                 <div className={styles.buttons}>
-                    <button className={styles.left} onClick={decrease}><i className="fas fa-arrow-left"></i></button>
-                    <button className={styles.right} onClick={increase}><i className="fas fa-arrow-right"></i></button>
+                    <button className={styles.left} onClick={decrease}><i className="fas fa-arrow-left" aria-label="Previous month"></i></button>
+                    <button className={styles.right} onClick={increase}><i className="fas fa-arrow-right" aria-label="Next month"></i></button>
                 </div>
 
                 <div className={styles.days}>
@@ -175,7 +179,15 @@ function Calendar () {
                         const dayEvents = getEventsForDate(day);
                         
                         return (
-                            <div key={index} className={day === currentDay ? styles.currentDay : styles.calendar__cell} onClick={day ? () => updateDay(day) : undefined} onDoubleClick={day ? () => setIsOpen(true) : undefined}>
+                            <div key={index} className={day === currentDay ? styles.currentDay : styles.calendar__cell} onClick={day ? () => updateDay(day) : undefined} onDoubleClick={day ? () => setIsOpen(true) : undefined} tabIndex={day ? 0 : -1} role={day ? "button" : undefined} aria-label={day ? `Day ${day}` : undefined}
+                                onKeyDown={(e) => {
+                                    if (!day) return;
+
+                                    if (e.key === "Enter" || e.key === " ") {
+                                    e.preventDefault();
+                                    updateDay(day);
+                                    }
+                                }}>
 
                                 {day ? (
                                     <>

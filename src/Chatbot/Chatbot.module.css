@@ -196,3 +196,107 @@ textarea::placeholder {
 .messageHistory::-webkit-scrollbar-track {
     background: transparent;
 }
+
+@media screen and (max-width: 900px) {
+    .chatContainer {
+    width: 95%;
+    height: 75vh;
+    margin: 90px auto 20px;
+    }
+
+    .sidebar {
+        width: 180px;
+        padding: 12px;
+    }
+
+    .frame {
+        margin: 10px;
+    }
+
+    .inputWrapper {
+        width: 90%;
+    }
+
+    .userMessage {
+        margin-right: 20px;
+        max-width: 70%;
+    }
+
+    .response {
+        margin-left: 20px;
+        max-width: 70%;
+    }
+
+    .userMessage h2,
+    .response h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .chatContainer {
+        flex-direction: column;
+        width: 95%;
+        height: 80vh;
+        margin: 80px auto 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 160px;
+
+        box-sizing: border-box;
+        flex-direction: column;
+    }
+
+    .chatList {
+        overflow-y: auto;
+    }
+
+    .frame {
+        flex: 1;
+        margin: 10px 0 0;
+        min-height: 0;
+    }
+
+    .inputWrapper {
+        width: 92%;
+        margin-bottom: 12px;
+    }
+
+    textarea {
+        min-height: 50px;
+        padding: 14px 65px 14px 14px;
+        font-size: 16px;
+    }
+
+    textarea::placeholder {
+        font-size: 16px;
+    }
+
+    .send {
+        right: 10px;
+        height: 40px;
+        padding: 6px 12px;
+    }
+
+    .messageHistory {
+        padding: 12px;
+    }
+
+    .userMessage {
+        margin-right: 0;
+        max-width: 80%;
+    }
+
+    .response {
+        margin-left: 0;
+        max-width: 80%;
+    }
+
+    .userMessage h2,
+    .response h2 {
+        font-size: 17px;
+    }
+}

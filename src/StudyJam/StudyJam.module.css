@@ -37,4 +37,58 @@
     background-color: #f5f5f5;
     cursor: pointer;
 }
-  
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    min-height: calc(100vh - 220px);
+    height: auto;
+    padding: 70px 20px 50px;
+    box-sizing: border-box;
+  }
+
+  .poloFrame {
+    width: min(700px, 90vw);
+    height: 240px;
+    font-size: 45px;
+  }
+
+  .setbuttons {
+    width: min(700px, 90vw);
+    margin-top: 35px;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .timebuttons {
+    font-size: 22px;
+    padding: 10px 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 60px 15px 50px;
+  }
+
+  .poloFrame {
+    width: 92vw;
+    height: 200px;
+    font-size: 30px;
+  }
+
+  .setbuttons {
+    width: 92vw;
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+  .timebuttons {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 10px;
+  }
+}

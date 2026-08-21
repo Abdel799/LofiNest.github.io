@@ -20,6 +20,9 @@ function App() {
   const playerIntervalRef = useRef(null)
   const shouldPlayRef = useRef(false) // Track intended play state
 
+  const [useFallback, setUseFallback] = useState(false);
+  const audioRef = useRef(null);
+
   const gifs = ["2gif.gif", "bear.gif", "gif.gif", "gif4.gif", "gif5.gif", "gif8.gif", "gif9.gif", "night.gif"]
 
   const randomGif = useMemo(() => {
@@ -28,12 +31,12 @@ function App() {
   }, []);
 
   const songs = [
-    {name: "Hip Hop Radio 📚", youtubeId: 'X4VbdwhkE10', img: '/Lofi-1.jpg'},
-    {name: "Jazz Radio 🎵", youtubeId: 'E2vONfzoyRI', img: '/Lofi-1.jpg'},
-    {name: "Chill Beats Radio 🌙", youtubeId: '92PvEVG0sKI', img: '/Lofi-1.jpg'},
-    {name: "Study Beats Radio 📖", youtubeId: 'qGohtGC5Rtk', img: '/Lofi-1.jpg'},
-    {name: "Synthwave Radio 🌆", youtubeId: '4xDzrJKXOOY', img: '/Lofi-1.jpg'},
-    {name: "Calm Radio 🌊", youtubeId: 'E_XmwjgRLz8', img: '/Lofi-1.jpg'}
+    {name: "Hip Hop Radio 📚", youtubeId: 'rFZHOHl-L8A', fallback: '/Songs/Ambiance.mp3', img: '/Lofi-1.jpg'},
+    {name: "Jazz Radio 🎵", youtubeId: 'E2vONfzoyRI', fallback: '/Songs/Cozy-Coffee.mp3',img: '/lofi-pic-2.png'},
+    {name: "Chill Beats Radio 🌙", youtubeId: '92PvEVG0sKI', fallback: '/Songs/deep-focus.mp3',img: '/lofi-pic-3.avif'},
+    {name: "Study Beats Radio 📖", youtubeId: 'qGohtGC5Rtk', fallback: '/Songs/Dreamy.mp3',img: '/lofi-pic-4.jpg'},
+    {name: "Synthwave Radio 🌆", youtubeId: '4xDzrJKXOOY', fallback: '/Songs/Midnight.mp3',img: '/lofi-pic-5.avif'},
+    {name: "Calm Radio 🌊", youtubeId: 'E_XmwjgRLz8', fallback: '/Songs/Night-owl.mp3',img: '/lofi-pic-9.jpg'}
   ];
 
   // Load YouTube IFrame API on mount
@@ -84,6 +87,17 @@ function App() {
               nextSong();
             }
           },
+          onError: (event) => {
+            console.log("YouTube stream failed:", event.data);
+
+            setUseFallback(true);
+
+            if (shouldPlayRef.current) {
+              setTimeout(() => {
+              audioRef.current?.play();
+              }, 0);
+            }
+          },
         },
       });
     }
@@ -112,6 +126,14 @@ function App() {
 
   // Handle song changes
   useEffect(() => {
+    
+    setUseFallback(false);
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    
     if (youtubePlayerRef.current && youtubePlayerRef.current.loadVideoById) {
       const wasPlaying = shouldPlayRef.current;
       
@@ -141,17 +163,23 @@ function App() {
 
   const handlePlay = async () => {
     shouldPlayRef.current = true;
-    setIsPlaying(true); // Update UI immediately
-    if (youtubePlayerRef.current && youtubePlayerRef.current.playVideo) {
-      youtubePlayerRef.current.playVideo();
+    setIsPlaying(true);
+
+    if (useFallback) {
+      audioRef.current?.play();
+    } else {
+      youtubePlayerRef.current?.playVideo();
     }
-  };
+};
 
   const handlePause = () => {
     shouldPlayRef.current = false;
-    setIsPlaying(false); // Update UI immediately
-    if (youtubePlayerRef.current && youtubePlayerRef.current.pauseVideo) {
-      youtubePlayerRef.current.pauseVideo();
+    setIsPlaying(false);
+
+    if (useFallback) {
+      audioRef.current?.pause();
+    } else {
+      youtubePlayerRef.current?.pauseVideo();
     }
   };
 
@@ -220,6 +248,10 @@ function App() {
 
           {/* Hidden YouTube player */}
           <div id="youtube-player" style={{ display: 'none' }} />
+          <audio
+            ref={audioRef}
+            src={songs[currentSong].fallback}
+          />
 
           <Routes>
             <Route path="/" element={
